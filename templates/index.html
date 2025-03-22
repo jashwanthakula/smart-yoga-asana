@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yoga Asana Recommender</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="icon" type="image/x-icon" href="/static/images/icon.ico">
+</head>
+<body>
+
+<h1>🧘‍♀️ Smart Yoga Asana Recommender</h1>
+
+<div class="yoga-icon"></div>
+
+<!-- ✅ Get Started Button -->
+<button class="get-started-btn" onclick="location.href='/recommend'">Recommender System</button>
+
+<!-- ✅ Display 3 Random Quotes From MongoDB -->
+<div class="container">
+    {% for quote in quotes %}
+    <div class="quote-card">
+        <p>"{{ quote.split(' - ')[0] }}"</p>
+        <span>- {{ quote.split(' - ')[1] }}</span>
+    </div>
+    {% endfor %}
+</div>
+
+</body>
+</html>

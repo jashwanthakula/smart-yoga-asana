@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Get Recommendations</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="icon" type="image/x-icon" href="/static/images/icon.ico">
+</head>
+<body>
+
+<div class="form-container">
+    <h2>🧘‍♀️ Get Your Yoga Asana Recommendations</h2>
+    <form id="recommendForm">
+        <input type="text" name="email" placeholder="Your Email 📧" required>
+        <input type="number" name="age" placeholder="Your Age 📆" required>
+        <select name="gender" required>
+            <option value="" disabled selected>Select Gender</option>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+            <option value="any">Any</option>
+        </select>
+        <input type="text" name="health_issue" placeholder="Describe Your Health Issue 🩺" required>
+        <button type="submit" class="submit-btn">Get Recommendations 📄</button>
+    </form>
+
+    <div class="processing-animation" id="loading">⏳ Processing...</div>
+    <div class="success-msg" id="success">✅ PDF has been mailed successfully!</div>
+    <div class="error-msg" id="error">❌ No suitable asanas found!</div>
+</div>
+
+<script>
+    document.getElementById("recommendForm").onsubmit = async function(event) {
+        event.preventDefault();
+        document.getElementById("loading").style.display = "block";
+        document.getElementById("success").style.display = "none";
+        document.getElementById("error").style.display = "none";
+
+        const formData = new FormData(event.target);
+
+        const response = await fetch("/get_recommendations", {
+            method: "POST",
+            body: formData
+        });
+
+        const result = await response.json();
+
+        document.getElementById("loading").style.display = "none";
+
+        if (result.success) {
+            document.getElementById("success").style.display = "block";
+        } else {
+            document.getElementById("error").style.display = "block";
+        }
+    };
+</script>
+
+</body>
+</html>

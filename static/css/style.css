@@ -1,0 +1,220 @@
+/* ======== Global Styles ======== */
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background-color: #6eecff;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* ======== Title Style ======== */
+h1 {
+    font-size: 28px;
+    font-weight: bold;
+    color: black;
+    margin-bottom: 20px;
+    margin-top: -3%;
+}
+
+/* ======== Floating Yoga Icon Animation ======== */
+.yoga-icon {
+    width: 160px;
+    height: 160px;
+    background-image: url(/static/images/floating-img.png);
+    background-size: cover;
+    animation: float 3s ease-in-out infinite;
+    position: relative;  /* ✅ Prevents content from moving */
+}
+
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }  /* ✅ Reduced movement */
+    100% { transform: translateY(0px); }
+}
+
+/* ======== Container for 3 Cards ======== */
+.container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+/* ======== Quote Card Style ======== */
+.quote-card {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 300px;
+    height: 130px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* ======== Card Hover Effect ======== */
+.quote-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+}
+
+/* ======== Quote Text Style ======== */
+.quote-card p {
+    font-size: 12.5px;
+    font-style: italic;
+    color: #444;
+}
+
+/* ======== Quote Author Style ======== */
+.quote-card span {
+    display: block;
+    margin-top: 10px;
+    font-size: 14px;
+    font-weight: bold;
+    color: #555;
+}
+
+/* ======== Get Started Button ======== */
+.get-started-btn {
+    background-color: #fbc02d;
+    width: 300px;
+    color: black;
+    padding: 12px 30px;
+    border: none;
+    border-radius: 50px;
+    font-size: 20px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    text-decoration: none;
+    margin-top: 20px;
+    font-weight: bold;
+}
+
+.get-started-btn:hover {
+    transform: scale(1.05);
+    background-color: #ffc42fe3;
+}
+
+/* ======== Responsive Design ======== */
+@media (max-width: 900px) {
+    .container {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .quote-card {
+        width: 90%;
+    }
+}
+
+/* ======== Recommend Page (recommend.html) ======== */
+.form-container {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+}
+
+.form-container h2 {
+    font-size: 24px;
+    color: black;
+    margin-bottom: 20px;
+}
+
+/* ======= Input Fields ======= */
+input, select, button {
+    width: 94%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 16px;
+    box-sizing: border-box; /* Ensures padding doesn't affect width */
+}
+
+input::placeholder {
+    color: #aaa;
+}
+
+/* ======= Submit Button ======= */
+.submit-btn {
+    background-color: #fbc02d;
+    color: black;
+    border: none;
+    padding: 12px;
+    border-radius: 50px;
+    font-size: 18px;
+    font-weight: bold;
+    width: 280px;
+    cursor: pointer;
+}
+
+.submit-btn:hover {
+    transform: scale(1.02);
+    background-color: #ffc42fe3;
+}
+
+/* ======= Loading Animation ======= */
+.processing-animation {
+    display: none;
+    margin-top: 20px;
+    font-size: 16px;
+    color: #444;
+}
+
+/* ======= Success and Error Messages ======= */
+.success-msg {
+    display: none;
+    margin-top: 15px;
+    font-weight: bold;
+    color: #2e7d32;
+}
+
+.error-msg {
+    display: none;
+    margin-top: 15px;
+    font-weight: bold;
+    color: #d32f2f;
+}
+
+/* ======= Smooth Transition for Buttons ======= */
+button, .get-started-btn {
+    transition: all 0.3s ease;
+}
+
+/* ======= Envelope Animation (Email Sent) ======= */
+.envelope-icon {
+    width: 60px;
+    height: 60px;
+    margin-top: 20px;
+    animation: bounce 1.5s infinite;
+}
+
+@keyframes bounce {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0); }
+}
+
+/* ======= Back to Home Button ======= */
+.back-home-btn {
+    background-color: #ff7043;
+    color: #fff;
+    padding: 10px 30px;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    margin-top: 20px;
+}
+
+.back-home-btn:hover {
+    background-color: #f4511e;
+}
